@@ -4,10 +4,10 @@ require('./killersBoard.less');
 
 const appModule = angular.module('killersBoard', []);
 
-KillersBoardController.$inject = [];
-function KillersBoardController() {
+KillersBoardController.$inject = ['KillersService'];
+function KillersBoardController(KillersService) {
 
-
+	this.killers = KillersService.getKillers();
 }
 
 appModule.component('killersBoard', {

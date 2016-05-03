@@ -1,0 +1,53 @@
+.btn {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 0;
+	line-height: 1;
+	font-weight: normal;
+	vertical-align: middle;
+	font-family: roboto;
+	border: none;
+	touch-action: manipulation;
+	cursor: pointer;
+	white-space: nowrap;
+	outline: none;
+	text-align: center;
+	vertical-align: middle;
+
+	&::before {
+		display: inline-block;
+		height: 100%;
+		content: '';
+		vertical-align: middle;
+	}
+
+	&__startNewGame {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: #009926;
+		color: #FFFFFF;
+
+		&:hover, &:active {
+			background: #0000cc;
+		}
+	}
+
+	&__addPlayer{
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background: #009926;
+		color: #FFFFFF;
+		font-size: 30px;
+
+		&[disabled='disabled'] {
+			background: #114411;
+			pointer-events: none;
+		}
+
+		&:hover, &:active {
+			background: #0000cc;
+		}
+	}
+}

@@ -1,4 +1,7 @@
 <div class="killersBoard" app-interact draggable-enabled="{{killersBoardCtrl.draggable}}">
+	<div class="killersBoard__headerContainer">
+		{{killersBoardCtrl.killers.length}} Killers
+	</div>
 	<div class="killersBoard__messageContainer">
 		<killers-list></killers-list>
 	</div>
