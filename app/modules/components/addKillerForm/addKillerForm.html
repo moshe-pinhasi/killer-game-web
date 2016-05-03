@@ -1,0 +1,13 @@
+<div class="addKillerForm">
+	<div class="addKillerForm__avatar pull--left">
+		<!--<user-avatar uuid="{{addKillerFormCtrl.uuid}}" />-->
+	</div>
+	<form ng-submit="addKillerFormCtrl.sendMessage()" class="container">
+		<div class="row">
+			<div class="">
+				<input ng-model="addKillerFormCtrl.name" class="addKillerForm__input" type="text" placeholder="Type your name" >
+				<button type="submit" class="addKillerForm__sendBtn">Add</button>
+			</div>
+		</div>
+	</form>
+</div>
