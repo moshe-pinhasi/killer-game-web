@@ -1,20 +1,15 @@
 "use strict";
 
 require('./addKillerForm.less');
-const _ = require('lodash');
 
 const appModule = angular.module('addKillerForm', []);
 
 AddKillerFormController.$inject = ['KillersService'];
 function AddKillerFormController(KillersService) {
 
-	console.log(KillersService.getKillers());
-
 	this.sendMessage = () => {
-		KillersService.addKiller({name: this.name, uuid: _.random(1000000).toString()});
-
+		KillersService.addKiller(this.name);
 		this.name = null;
-		console.log(KillersService.getKillers());
 	};
 }
 
