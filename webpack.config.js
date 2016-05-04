@@ -34,8 +34,8 @@ module.exports = {
 				loader: "html"
 			},
 			{
-				test: /\.(png|jpg)$/,
-				loader: 'url?limit=80192&name=[name].[ext]'
+				test: /\.(png|jpg|jpeg)$/,
+				loader: 'url-loader?limit=80192&name=[name].[ext]'
 			}
 		]
 	},
