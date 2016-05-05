@@ -1,5 +1,5 @@
 .killersBoard {
-
+	position: relative;
 	width: 330px;
 	padding: 10px;
 	background: white;
@@ -14,11 +14,17 @@
 		font-size: 18px;
 	}
 
-	&__messageContainer {
+	&__playersContainer {
 		height: 500px;
 		border-top: 1px dashed black;
 		border-bottom: 1px dashed black;
 		overflow: auto;
+	}
+
+	&__addPlayerContainer {
+		position: absolute;
+		bottom: 120px;
+		right: 10px;
 	}
 
 	&__formContainer {

@@ -1,6 +1,21 @@
 <div class="addKillerForm">
+
+	<button type="button"
+			class="btn btn__add btn--circle addKillerForm__addBtn"
+			ng-click="addKillerFormCtrl.showInput = true;"
+			ng-show="!addKillerFormCtrl.showInput">+</button>
+
 	<form ng-submit="addKillerFormCtrl.sendMessage()" class="container">
-		<input ng-model="addKillerFormCtrl.name" class="addKillerForm__input" type="text" placeholder="Type your name" >
-		<button type="submit" class="btn btn__addPlayer addKillerForm__addBtn" ng-disabled="!addKillerFormCtrl.name">+</button>
+		<button  class="btn btn__add btn--circle addKillerForm__addBtn"
+				 ng-show="addKillerFormCtrl.showInput">
+			{{!!addKillerFormCtrl.name ? '+' : '-'}}
+		</button>
+
+		<input type="text"
+			   ng-model="addKillerFormCtrl.name"
+			   class="addKillerForm__input"
+			   ng-class="{'addKillerForm__input--show': addKillerFormCtrl.showInput}"
+			   placeholder="Type a name">
 	</form>
+
 </div>
