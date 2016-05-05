@@ -50,3 +50,38 @@
 		}
 	}
 }
+
+.btn2 {
+
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+	position: relative;
+	transition: all 0.3s;
+
+	/* Button start */
+	&--start {
+		padding: 5px 30px;
+		border-radius: 50px;
+		border: 3px solid #fff;
+		color: #fff;
+		overflow: hidden;
+
+		&:active {
+			border-color: #17954c;
+			color: #17954c;
+		}
+
+		&:hover {
+			background: #24b662;
+		}
+	}
+}
