@@ -32,7 +32,7 @@ appModule.factory('WordsService', [
 		// The public API interface
 		return {
 			getWord
-		}
+		};
 
 	}]);
 

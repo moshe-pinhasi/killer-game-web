@@ -23,7 +23,7 @@ appModule.factory('KillersService', ['WordsService',
 		return {
 			getKillers,
 			addKiller
-		}
+		};
 
 	}]);
 

@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = angular.module('components', [
 	require('./userAvatar/userAvatar'),
 	require('./killer/killer'),
