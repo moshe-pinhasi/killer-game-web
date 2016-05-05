@@ -10,9 +10,6 @@ function AddKillerFormController(KillersService) {
 	const isEmpty = (value) => angular.isUndefined(value) || value === null || value.length === 0;
 
 	this.sendMessage = () => {
-		
-		console.log(this.name);
-
 		if (isEmpty(this.name)) {
 			this.showInput = false;
 			return;
