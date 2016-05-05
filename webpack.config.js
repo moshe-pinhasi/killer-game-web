@@ -1,19 +1,19 @@
 'use strict';
 
+const DEV_SERVER_PORT = 8082;
 const webpack = require('webpack'),
 	HtmlWebpackPlugin = require('html-webpack-plugin'),
 	WebpackNotifierPlugin = require('webpack-notifier'),
 	path = require('path');
 const pkg = require('./package.json');
 
-const libs = Object.keys(pkg.dependencies)
-	.filter((dep) => dep !== 'bootstrap');
+//const libs = Object.keys(pkg.dependencies)
+//	.filter((dep) => dep !== 'bootstrap');
 
 module.exports = {
 	context: path.resolve(__dirname, 'app'),
 	entry: {
-		main: './index.js',
-		libs: libs
+		main: './index.js'
 	},
 	output: {
 		path: path.join(__dirname, 'build'),
@@ -31,21 +31,25 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				loader: "style-loader!css-loader?sourceMap"
+				loader: "style!css?sourceMap"
 			},
 			{
 				test: /\.less$/,
-				loader: "style-loader!css-loader?sourceMap!less-loader?sourceMap"
+				loader: "style!css?sourceMap!less?sourceMap"
+			},
+			{
+				test: /\.(png|jpg)$/,
+				loader: 'url?limit=80192&name=[name].[ext]'
 			},
 			{
 				test: /\.html$/,
 				loader: "html"
-			},
-			{
-				test: /\.(png|jpg|jpeg)$/,
-				loader: 'url-loader?limit=80192&name=[name].[ext]'
 			}
 		]
+	},
+	resolve: {
+		root: path.join(__dirname, 'app'),
+		extensions: ['', '.js']// you can now require('file') instead of require('file.js')
 	},
 	devtool: 'source-map',
 	plugins: [
@@ -54,5 +58,12 @@ module.exports = {
 			filename: 'index.html',
 			template: './index.html'
 		})
-	]
+	],
+	devServer: {
+		port: DEV_SERVER_PORT,
+		contentBase: './app',
+		colors: true,
+		noInfo: true,
+		historyApiFallback: true
+	}
 };
