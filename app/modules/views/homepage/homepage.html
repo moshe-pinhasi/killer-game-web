@@ -1,8 +1,24 @@
 <div class="homepage center">
 	<div class="homepage__startContainer">
 		<a class="btn btn__start btn--ellipse"
-		   ui-sref="createPlayers">
+		   ng-click="homepageCtrl.login()">
+		   <!--ui-sref="createPlayers">-->
 			New Game
 		</a>
+
+		<a class="btn btn__start btn--ellipse"
+		   ng-click="homepageCtrl.logout()">
+			<!--ui-sref="createPlayers">-->
+			logout
+		</a>
+
+		<!--<fb:login-button scope="public_profile,email,user_friends" onlogin="homepageCtrl.loginState();">-->
+		<!--</fb:login-button>-->
+
+		<!--<fb:login-button scope="public_profile,email" onlogin="homepageCtrl.checkLoginState();">-->
+		<!--</fb:login-button>-->
+
+		<!--<fb:logout-button scope="public_profile,email" onlogin="homepageCtrl.checkLoginState();">-->
+		<!--</fb:logout-button>-->
 	</div>
 </div>

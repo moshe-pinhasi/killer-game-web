@@ -2,5 +2,7 @@
 
 module.exports = angular.module('services', [
 	require('./killersService'),
-	require('./wordsService')
+	require('./wordsService'),
+	require('./facebookService')
+	//require('./facebookServices')
 ]);
