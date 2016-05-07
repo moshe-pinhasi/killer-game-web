@@ -5,7 +5,7 @@
 		</board-header>
 
 		<board-body>
-			<killers-list players="killersBoardCtrl.players"></killers-list>
+			<display-player player="playersPresentionsCtrl.player"></display-player>
 		</board-body>
 
 		<board-actions>
@@ -15,7 +15,7 @@
 			</a>
 			<a class="btn btn__start btn--ellipse"
 			   ng-click="playersPresentionsCtrl.next()">
-				Next
+				{{playersPresentionsCtrl.finished ? 'Done' : 'Next'}}
 			</a>
 		</board-actions>
 	</killers-board>

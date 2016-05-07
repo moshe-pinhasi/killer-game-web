@@ -1,0 +1,45 @@
+.displayPlayer {
+
+  padding: 20px 0 0 0;
+
+  &__row {
+	width: 100%;
+	margin: 20px 0 0 0;
+
+	&:first-child {
+	  cursor: pointer;
+	}
+  }
+
+  &__playerAnimation {
+	opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in;
+	transition: opacity 0.5s ease-in;
+  }
+
+  &__playerAnimation.ng-hide {
+	opacity:0;
+	-webkit-transition: opacity 0s ease-out;
+	transition: opacity 0s ease-out;
+  }
+
+  &__aimPlayer {
+	width: 100%;
+  }
+
+  &__playerWord {
+	margin: 20px 0 0 0;
+	font-size: 18px;
+	color: purple;
+  }
+
+  &__yourPersonTitle {
+	width: 100%;
+  }
+
+  &__killText {
+	margin: 20px 0 0 0;
+	font-size: 18px;
+	color: purple;
+  }
+}

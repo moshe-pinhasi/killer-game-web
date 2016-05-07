@@ -15,9 +15,10 @@ appModule.factory('GameService', [
 			const k = angular.copy(killers);
 			k.forEach(killer => {
 				const options = getOptions(killers, killer);
-				const selected = _.random(options.length-1);
-				killer.person = options[selected];
-				removed[killer.person.uuid] = killer.person;
+				const selectedIndex = _.random(options.length-1);
+				const selected = options[selectedIndex];
+				killer.person = selected;
+				removed[selected.uuid] = selected;
 				//console.log(killer.name, "need to kill ", killer.person.name, "with the word:", killer.person.word);
 			});
 

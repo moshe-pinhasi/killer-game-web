@@ -4,12 +4,34 @@ require('./playersPresentions.less');
 
 const appModule = angular.module('playersPresentions', []);
 
-PlayersPresentionsController.$inject = ['KillersService'];
-function PlayersPresentionsController(KillersService) {
+PlayersPresentionsController.$inject = ['GameService', 'KillersService'];
+function PlayersPresentionsController(GameService, KillersService) {
 
-	this.killers = KillersService.getKillers();
-	this.next = () => console.log("next");
-	this.next = () => console.log("back");
+	const players = GameService.match(KillersService.getKillers());
+
+	let index = 0;
+	this.player = players[0];
+	this.finished = false;
+
+	this.next = () => {
+		if (index === (players.length-1)) {
+			return;
+		}
+
+		this.player = players[++index];
+		(index === (players.length-1)) && (this.finished = true);
+	};
+
+	this.back = () => {
+		if (index === 0) {
+			return;
+		}
+		this.finished = false;
+		this.player = players[--index];
+	};
+
+	this.done = () => console.log("done");
+
 }
 
 appModule.config(['$stateProvider', '$urlRouterProvider',

@@ -1,0 +1,16 @@
+<div class="displayPlayer">
+	<div class="displayPlayer__row center displayPlayer__playerAnimation"
+		 ng-show="displayPlayerCtrl.show" ng-click="displayPlayerCtrl.showMore()">
+			<killer name="{{displayPlayerCtrl.player.name}}"
+					uuid="{{displayPlayerCtrl.player.uuid}}"/>
+	</div>
+
+	<div class="displayPlayer__row center displayPlayer__playerAnimation" ng-show="displayPlayerCtrl.moreDetails">
+		<div sytle="displayPlayer__aimPlayer">
+			<div>Your person is: <span class="displayPlayer__playerWord">{{displayPlayerCtrl.player.person.name}}</span></div>
+			<div>His word is: <span class="displayPlayer__playerWord">{{displayPlayerCtrl.player.person.word}}</span></div>
+			<div class="displayPlayer__killText center">Kill him!</div>
+		</div>
+	</div>
+
+</div>

@@ -18,16 +18,6 @@ function AddKillerFormController(KillersService) {
 		KillersService.addKiller(this.name);
 		this.name = null;
 	};
-
-	const addName = (name) => {
-		this.name = name;
-		this.sendMessage();
-	};
-
-	addName('moshe');
-	addName('yaniv');
-	addName('igal');
-	addName('yaron');
 }
 
 appModule.component('addKillerForm', {
