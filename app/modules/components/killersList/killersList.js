@@ -8,7 +8,7 @@ KillersListController.$inject = ['KillersService'];
 function KillersListController(KillersService) {
 
 	this.killers = KillersService.getKillers();
-
+	this.removeKiller = (uuid) => KillersService.removeKiller(uuid);
 }
 
 appModule.component('killersList', {

@@ -19,10 +19,14 @@ appModule.factory('KillersService', ['WordsService',
 			});
 		};
 
+		const removeKiller = (uuid) =>
+			_.remove(this.killers, (killer) => killer.uuid === uuid);
+
 		// The public API interface
 		return {
 			getKillers,
-			addKiller
+			addKiller,
+			removeKiller
 		};
 
 	}]);

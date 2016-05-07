@@ -12,7 +12,8 @@
 	</div>
 
 	<div class="killersBoard__formContainer">
-		<a class="btn btn__start btn--ellipse">
+		<a class="btn btn__start btn--ellipse"
+		   ng-class="{'btn--disabled': killersBoardCtrl.killers.length < 3}">
 			Start
 		</a>
 	</div>
