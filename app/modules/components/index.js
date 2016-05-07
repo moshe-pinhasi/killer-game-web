@@ -5,5 +5,6 @@ module.exports = angular.module('components', [
 	require('./killer/killer'),
 	require('./killersList/killersList'),
 	require('./addKillerForm/addKillerForm'),
-	require('./killersBoard/killersBoard')
+	require('./killersBoard/killersBoard'),
+	require('./playersPresentation/playersPresentation')
 ]);

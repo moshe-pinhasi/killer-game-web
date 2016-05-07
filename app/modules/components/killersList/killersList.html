@@ -1,9 +1,9 @@
 <div class="killersList">
 	<ul class="killersList__container">
-		<li class="killersList__item" ng-repeat="killer in killersListCtrl.killers track by killer.uuid">
+		<li class="killersList__item" ng-repeat="killer in killersListCtrl.killers track by $index">
 			<button type="button"
 					class="btn btn__remove btn--circle killersList__btnRemove"
-					ng-click="killersListCtrl.removeKiller(killer.uuid)">
+					ng-click="killersListCtrl.onRemove({uuid: killer.uuid})">
 				x
 			</button>
 			<killer name="{{killer.name}}" uuid="{{killer.uuid}}" />

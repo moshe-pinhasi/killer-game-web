@@ -4,17 +4,19 @@ require('./killersList.less');
 
 const appModule = angular.module('killersList', []);
 
-KillersListController.$inject = ['KillersService'];
-function KillersListController(KillersService) {
+KillersListController.$inject = [];
+function KillersListController() {
 
-	this.killers = KillersService.getKillers();
-	this.removeKiller = (uuid) => KillersService.removeKiller(uuid);
 }
 
 appModule.component('killersList', {
-		template: require('./killersList.html'),
-		controllerAs: 'killersListCtrl',
-		controller: KillersListController
+	template: require('./killersList.html'),
+	controllerAs: 'killersListCtrl',
+	controller: KillersListController,
+	bindings: {
+		killers: "=",
+		onRemove: "&"
+	}
 });
 
 module.exports = appModule.name;

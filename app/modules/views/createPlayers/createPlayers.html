@@ -1,3 +1,23 @@
 <div class="createPlayers center">
-	<killers-board></killers-board>
+	<killers-board>
+		<board-header>
+			{{createPlayersCtrl.killers.length}} Killers <span class="createPlayers__minKillers">(min killers 3)</span>
+		</board-header>
+
+		<board-body>
+			<killers-list killers="createPlayersCtrl.killers"
+						  on-remove="createPlayersCtrl.onRemove(uuid)"></killers-list>
+			<div class="createPlayers__addPlayerContainer">
+				<add-killer-form></add-killer-form>
+			</div>
+		</board-body>
+
+		<board-actions>
+			<a class="btn btn__start btn--ellipse"
+			   ng-class="{'btn--disabled': createPlayersCtrl.killers.length < 3}"
+			   ui-sref="playersPresentions">
+				Start
+			</a>
+		</board-actions>
+	</killers-board>
 </div>

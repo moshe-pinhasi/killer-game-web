@@ -1,0 +1,22 @@
+<div class="playersPresentions center">
+	<killers-board>
+		<board-header>
+			{{playersPresentionsCtrl.killers.length}} Killers
+		</board-header>
+
+		<board-body>
+			<killers-list players="killersBoardCtrl.players"></killers-list>
+		</board-body>
+
+		<board-actions>
+			<a class="btn btn__start btn--ellipse"
+			   ng-click="playersPresentionsCtrl.back()">
+				Back
+			</a>
+			<a class="btn btn__start btn--ellipse"
+			   ng-click="playersPresentionsCtrl.next()">
+				Next
+			</a>
+		</board-actions>
+	</killers-board>
+</div>

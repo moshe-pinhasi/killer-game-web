@@ -4,10 +4,11 @@ require('./createPlayers.less');
 
 const appModule = angular.module('createPlayers', []);
 
-CreatePlayersController.$inject = [];
-function CreatePlayersController() {
+CreatePlayersController.$inject = ['KillersService'];
+function CreatePlayersController(KillersService) {
 
-
+	this.killers = KillersService.getKillers();
+	this.onRemove = (uuid) => KillersService.removeKiller(uuid);
 }
 
 appModule.config(['$stateProvider', '$urlRouterProvider',

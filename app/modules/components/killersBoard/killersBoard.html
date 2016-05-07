@@ -1,20 +1,31 @@
-<div class="killersBoard" app-interact draggable-enabled="{{killersBoardCtrl.draggable}}">
-	<div class="killersBoard__headerContainer">
-		{{killersBoardCtrl.killers.length}} Killers <span class="killersBoard__minKillers">(min killers 3)</span>
-	</div>
+<div class="killersBoard">
+	<div class="killersBoard__headerContainer" ng-transclude="boardHeader"></div>
+	<div class="killersBoard__gameContainer" ng-transclude="boardBody"></div>
+	<div class="killersBoard__actionsContainer" ng-transclude="boardActions"></div>
 
-	<div class="killersBoard__playersContainer">
-		<killers-list></killers-list>
-	</div>
+	<!--<div class="killersBoard__headerContainer">-->
+		<!--{{killersBoardCtrl.killers.length}} Killers <span class="killersBoard__minKillers">(min killers 3)</span>-->
+	<!--</div>-->
 
-	<div class="killersBoard__addPlayerContainer">
-		<add-killer-form></add-killer-form>
-	</div>
+	<!--<div class="killersBoard__gameContainer">-->
+		<!--<div ng-if="killersBoardCtrl.gameStatus === 'addPlayers'">-->
+			<!--<killers-list players="killersBoardCtrl.players"></killers-list>-->
+			<!--<div class="killersBoard__addPlayerContainer">-->
+				<!--<add-killer-form></add-killer-form>-->
+			<!--</div>-->
+		<!--</div>-->
 
-	<div class="killersBoard__formContainer">
-		<a class="btn btn__start btn--ellipse"
-		   ng-class="{'btn--disabled': killersBoardCtrl.killers.length < 3}">
-			Start
-		</a>
-	</div>
+		<!--<div class="killersBoard__playersPresentationContainer"-->
+			 <!--ng-if="killersBoardCtrl.gameStatus === 'playersPresentation'">-->
+			<!--<players-presentation players="killersBoardCtrl.players"></players-presentation>-->
+		<!--</div>-->
+	<!--</div>-->
+
+	<!--<div class="killersBoard__actionsContainer">-->
+		<!--<a class="btn btn__start btn--ellipse"-->
+		   <!--ng-class="{'btn--disabled': killersBoardCtrl.killers.length < 3}"-->
+		   <!--ng-click="killersBoardCtrl.startGame()">-->
+			<!--Start-->
+		<!--</a>-->
+	<!--</div>-->
 </div>

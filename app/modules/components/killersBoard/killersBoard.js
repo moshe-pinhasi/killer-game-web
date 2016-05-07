@@ -4,16 +4,21 @@ require('./killersBoard.less');
 
 const appModule = angular.module('killersBoard', []);
 
-KillersBoardController.$inject = ['KillersService'];
-function KillersBoardController(KillersService) {
+KillersBoardController.$inject = [];
+function KillersBoardController() {
 
-	this.killers = KillersService.getKillers();
+
 }
 
 appModule.component('killersBoard', {
 	controllerAs: 'killersBoardCtrl',
 	controller: KillersBoardController,
-	template: require('./killersBoard.html')
+	template: require('./killersBoard.html'),
+	transclude: {
+		boardHeader: "boardHeader",
+		boardBody: "boardBody",
+		boardActions: "?boardActions"
+	}
 });
 
 

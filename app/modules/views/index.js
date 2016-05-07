@@ -2,5 +2,6 @@
 
 module.exports = angular.module('views', [
 	require('./homepage/homepage'),
-	require('./createPlayers/createPlayers')
+	require('./createPlayers/createPlayers'),
+	require('./playersPresentions/playersPresentions')
 ]);
