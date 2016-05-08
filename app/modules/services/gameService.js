@@ -12,19 +12,18 @@ appModule.factory('GameService', [
 		const getOptions = (killers, killer) => killers.filter(k => k.uuid !== killer.uuid && !removed[k.uuid]);
 
 		const match = (killers) => {
-			const k = angular.copy(killers);
-			k.forEach(killer => {
-				const options = getOptions(killers, killer);
-				const selectedIndex = _.random(options.length-1);
-				const selected = options[selectedIndex];
-				killer.person = selected;
-				removed[selected.uuid] = selected;
-				//console.log(killer.name, "need to kill ", killer.person.name, "with the word:", killer.person.word);
-			});
 
-			this.killersIndexes = _.keyBy(killers, 'uuid');
+			let k = _.shuffle(angular.copy(killers));
 
-			return k;
+			k[k.length-1].person = k[0];
+			let i;
+			for (i = 0; i < k.length-1; i++) {
+				k[i].person = k[i+1];
+			}
+
+			this.killersIndexes = _.keyBy(k, 'uuid');
+
+			return _.shuffle(k);
 		};
 
 		// The public API interface
