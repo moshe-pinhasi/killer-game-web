@@ -17,13 +17,17 @@
 	&__gameContainer {
 		height: 500px;
 		border-top: 1px dashed black;
-		border-bottom: 1px dashed black;
 		overflow: auto;
 	}
 
 	&__actionsContainer {
 		text-align: center;
 		padding: 10px 10px 0 10px;
+		border-top: 1px dashed black;
+
+		&:empty {
+			visibility: hidden;
+		}
 	}
 
 }

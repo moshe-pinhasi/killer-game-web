@@ -1,0 +1,33 @@
+.killersListGame {
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	&__item {
+		position: relative;
+
+		&:hover {
+
+			.killersListGame__btnRemove {
+				visibility: visible;
+			}
+		}
+
+		&:not(:last-child) {
+			border-bottom: 1px solid #f2f2f2;
+		}
+	}
+
+	&__btnRemove {
+		position: absolute;
+		top: 5px;
+		right: 0;
+		visibility: hidden;
+		background: url('~images/knife.png') no-repeat;
+		width: 50px;
+		height: 45px;
+		background-size: 40px 30px;
+	}
+}

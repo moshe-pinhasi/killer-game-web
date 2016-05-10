@@ -1,0 +1,18 @@
+<div class="startGame center">
+	<killers-board>
+		<board-header>
+			{{startGameCtrl.killers.length}} Killers In Game
+		</board-header>
+
+		<board-body>
+			<display-player player="startGameCtrl.player"
+							ng-if="startGameCtrl.player"></display-player>
+
+			<killers-list-game ng-if="!startGameCtrl.player"
+							   killers="startGameCtrl.killers"
+							   on-remove="startGameCtrl.onRemove(uuid)"></killers-list-game>
+		</board-body>
+
+
+	</killers-board>
+</div>

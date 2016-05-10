@@ -4,16 +4,11 @@ const _ = require('lodash');
 
 const appModule = angular.module('GameService', []);
 
-appModule.factory('GameService', [
-	function GameServiceFactory() {
-
-		const removed = {};
-
-		const getOptions = (killers, killer) => killers.filter(k => k.uuid !== killer.uuid && !removed[k.uuid]);
+appModule.factory('GameService', () => {
 
 		const match = (killers) => {
 
-			let k = _.shuffle(angular.copy(killers));
+			let k = _.shuffle(killers);
 
 			k[k.length-1].person = k[0];
 			let i;
@@ -21,9 +16,7 @@ appModule.factory('GameService', [
 				k[i].person = k[i+1];
 			}
 
-			this.killersIndexes = _.keyBy(k, 'uuid');
-
-			return _.shuffle(k);
+			return k;
 		};
 
 		// The public API interface
@@ -31,6 +24,6 @@ appModule.factory('GameService', [
 			match
 		};
 
-	}]);
+	});
 
 module.exports = appModule.name;

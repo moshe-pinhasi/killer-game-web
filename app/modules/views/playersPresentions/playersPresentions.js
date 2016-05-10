@@ -4,8 +4,8 @@ require('./playersPresentions.less');
 
 const appModule = angular.module('playersPresentions', []);
 
-PlayersPresentionsController.$inject = ['GameService', 'KillersService'];
-function PlayersPresentionsController(GameService, KillersService) {
+PlayersPresentionsController.$inject = ['GameService', 'KillersService', '$state'];
+function PlayersPresentionsController(GameService, KillersService, $state) {
 
 	const players = GameService.match(KillersService.getKillers());
 
@@ -14,6 +14,11 @@ function PlayersPresentionsController(GameService, KillersService) {
 	this.finished = false;
 
 	this.next = () => {
+
+		if (this.finished) {
+			$state.go('startGame',{}, {location: 'replace'});
+		}
+
 		if (index === (players.length-1)) {
 			return;
 		}
@@ -31,6 +36,7 @@ function PlayersPresentionsController(GameService, KillersService) {
 	};
 
 	this.done = () => console.log("done");
+
 
 }
 
