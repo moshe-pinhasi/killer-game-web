@@ -13,10 +13,14 @@ function DisplayPlayerController($timeout, $scope) {
 	const display = () => {
 		this.show = false;
 		this.moreDetails = false;
-		$timeout(() => this.show = true, 1000);
+		$timeout(() => this.show = true, 500);
 	};
 
 	display();
+
+	if (this.showDetailsAuto) {
+		$timeout(this.showMore, 700);
+	}
 
 	const watcher = $scope.$watch('displayPlayerCtrl.player', display);
 	$scope.$on('$destroy', watcher);
@@ -27,7 +31,8 @@ appModule.component('displayPlayer', {
 	controllerAs: 'displayPlayerCtrl',
 	controller: DisplayPlayerController,
 	bindings: {
-		player: "="
+		player: "=",
+		showDetailsAuto: "="
 	}
 });
 

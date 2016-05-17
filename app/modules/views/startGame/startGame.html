@@ -5,10 +5,11 @@
 		</board-header>
 
 		<board-body>
-			<display-player player="startGameCtrl.player"
-							ng-if="startGameCtrl.player"></display-player>
+			<display-player player="startGameCtrl.killer"
+							show-details-auto="true"
+							ng-if="startGameCtrl.killer"></display-player>
 
-			<killers-list-game ng-if="!startGameCtrl.player"
+			<killers-list-game ng-if="!startGameCtrl.killer"
 							   killers="startGameCtrl.killers"
 							   on-remove="startGameCtrl.onRemove(uuid)"></killers-list-game>
 		</board-body>

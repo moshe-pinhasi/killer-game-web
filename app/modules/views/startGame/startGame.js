@@ -12,17 +12,18 @@ function StartGameController(KillersService, GameService, $timeout) {
 	this.killers = _.shuffle(angular.copy(KillersService.getKillers()));
 
 	// getting the player who kill
-	const getPlayer = (uuid) => this.killers.filter (player => player.person.uuid === uuid)[0];
+	const getKiller = (uuid) => this.killers.filter (player => player.person.uuid === uuid)[0];
+	const getDiedPlayer = (uuid) => this.killers.filter (player => player.uuid === uuid)[0];
 
-	this.onRemove = (uuid) => { // uuid - the died players
-		this.player = getPlayer(uuid);
+	this.onRemove = (uuid) => { // uuid - the died player
+		this.killer = getKiller(uuid); // player here hit the killer
+		const diedPlayer = getDiedPlayer(uuid);
 
+		this.killer.person = diedPlayer.person; // replace the win player aim with the died player aim
 		$timeout(() => {
-			this.player.person = this.player.person.person; // replace the win player aim with the died player aim
 			this.killers = _.remove(this.killers, (player) => player.uuid !== uuid); // removing the died player fro list
-			this.player = null;
-
-		}, 3000);
+			this.killer = null;
+		}, 5000);
 	};
 }
 
