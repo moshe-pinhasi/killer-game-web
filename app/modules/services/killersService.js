@@ -22,10 +22,10 @@ appModule.factory('KillersService', ['WordsService',
 		const removeKiller = (uuid) =>
 			_.remove(this.killers, (killer) => killer.uuid === uuid);
 
-		addKiller('moshe');
-		addKiller('yaniv');
-		addKiller('igal');
-		addKiller('yaron');
+		//addKiller('moshe');
+		//addKiller('yaniv');
+		//addKiller('igal');
+		//addKiller('yaron');
 
 		// The public API interface
 		return {
