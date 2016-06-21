@@ -9,6 +9,7 @@ function PlayersPresentionsController(GameService, KillersService, $state) {
 
 	const players = GameService.match(KillersService.getKillers());
 
+
 	let index = 0;
 	this.player = players[0];
 	this.finished = false;

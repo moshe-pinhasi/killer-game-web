@@ -16,7 +16,7 @@ appModule.factory('GameService', () => {
 				k[i].person = k[i+1];
 			}
 
-			return k;
+			return _.shuffle(k);
 		};
 
 		// The public API interface
