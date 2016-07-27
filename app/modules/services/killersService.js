@@ -30,13 +30,15 @@ appModule.factory('KillersService', ['WordsService',
 
 		const init = () => {
 			const killersRestore = localStorage.get('killers');
-			this.killers = killersRestore || [];
+			setKillers(killersRestore || []);
 		};
 
-		const createNewKillers = () => {
-			this.killers = [];
+		const setKillers = (killers) => {
+			this.killers = killers;
 			saveToLocal();
 		};
+
+		const createNewKillers = () => setKillers([]);
 
 		init();
 
@@ -49,6 +51,7 @@ appModule.factory('KillersService', ['WordsService',
 		return {
 			getKillers,
 			addKiller,
+			setKillers,
 			removeKiller,
 			createNewKillers
 		};

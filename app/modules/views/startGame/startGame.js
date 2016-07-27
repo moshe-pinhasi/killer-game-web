@@ -29,6 +29,7 @@ function StartGameController(KillersService, $timeout, $state) {
 		$timeout(() => {
 			this.killers = _.remove(this.killers, (player) => player.uuid !== uuid); // removing the died player fro list
 			this.killer = null;
+			KillersService.setKillers(this.killers);
 		}, 5000);
 	};
 }
