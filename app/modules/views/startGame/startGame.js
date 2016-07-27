@@ -6,10 +6,16 @@ const _ = require('lodash');
 
 const appModule = angular.module('startGame', []);
 
-StartGameController.$inject = ['KillersService', 'GameService', '$timeout'];
-function StartGameController(KillersService, GameService, $timeout) {
+StartGameController.$inject = ['KillersService', '$timeout', '$state'];
+function StartGameController(KillersService, $timeout, $state) {
 
-	this.killers = _.shuffle(angular.copy(KillersService.getKillers()));
+	const currKillers = KillersService.getKillers();
+	if (!currKillers || currKillers.length === 0) {
+		$state.go('homepage',{}, {location: 'replace'});
+		return;
+	}
+
+	this.killers = _.shuffle(angular.copy(currKillers));
 
 	// getting the player who kill
 	const getKiller = (uuid) => this.killers.filter (player => player.person.uuid === uuid)[0];

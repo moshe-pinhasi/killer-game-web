@@ -7,8 +7,13 @@ const appModule = angular.module('playersPresentions', []);
 PlayersPresentionsController.$inject = ['GameService', 'KillersService', '$state'];
 function PlayersPresentionsController(GameService, KillersService, $state) {
 
-	const players = GameService.match(KillersService.getKillers());
+	const currKillers = KillersService.getKillers();
+	if (!currKillers || currKillers.length === 0) {
+		$state.go('homepage',{}, {location: 'replace'});
+		return;
+	}
 
+	const players = GameService.match(currKillers);
 
 	let index = 0;
 	this.player = players[0];
