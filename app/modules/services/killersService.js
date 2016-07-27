@@ -23,9 +23,8 @@ appModule.factory('KillersService', ['WordsService',
 		};
 
 		const removeKiller = (uuid) => {
-			this.killers = _.remove(this.killers, (killer) => killer.uuid === uuid);
+			_.remove(this.killers, (killer) => killer.uuid === uuid);
 			saveToLocal();
-			return this.killers;
 		};
 
 		const init = () => {
