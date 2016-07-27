@@ -4,10 +4,13 @@ require('./homepage.less');
 
 const appModule = angular.module('homepage', []);
 
-HomepageController.$inject = [];
-function HomepageController() {
+HomepageController.$inject = ['$state', 'KillersService'];
+function HomepageController($state, KillersService) {
 
-
+	this.createNewGame = () => {
+		KillersService.createNewKillers();
+		$state.go('createPlayers',{}, {location: 'replace'});
+	};
 }
 
 appModule.config(['$stateProvider', '$urlRouterProvider',
