@@ -26,6 +26,14 @@ function StartGameController(KillersService, $timeout, $state) {
 		const diedPlayer = getDiedPlayer(uuid);
 
 		this.killer.person = diedPlayer.person; // replace the win player aim with the died player aim
+
+		if (this.killers.length === 2) {
+			this.killers = _.remove(this.killers, (player) => player.uuid !== uuid); // removing the died player from list
+			KillersService.setKillers(this.killers);
+			this.winner = this.killers[0].name;
+			return;
+		}
+
 		$timeout(() => {
 			this.killers = _.remove(this.killers, (player) => player.uuid !== uuid); // removing the died player fro list
 			this.killer = null;

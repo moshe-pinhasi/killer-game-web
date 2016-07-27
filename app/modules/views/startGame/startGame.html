@@ -7,11 +7,13 @@
 		<board-body>
 			<display-player player="startGameCtrl.killer"
 							show-details-auto="true"
-							ng-if="startGameCtrl.killer"></display-player>
+							ng-if="startGameCtrl.killer && !startGameCtrl.winner"></display-player>
 
-			<killers-list-game ng-if="!startGameCtrl.killer"
+			<killers-list-game ng-if="!startGameCtrl.killer && !startGameCtrl.winner"
 							   killers="startGameCtrl.killers"
 							   on-remove="startGameCtrl.onRemove(uuid)"></killers-list-game>
+
+			<div ng-if="startGameCtrl.winner">{{startGameCtrl.winner}} is the killer!</div>
 		</board-body>
 
 
