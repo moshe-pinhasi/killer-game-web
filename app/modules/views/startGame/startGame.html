@@ -16,9 +16,8 @@
 			<div ng-if="startGameCtrl.winner">{{startGameCtrl.winner}} is the killer!</div>
 		</board-body>
 
-		<board-actions>
-			<a ng-if="startGameCtrl.winner"
-			   class="btn btn__start btn--ellipse"
+		<board-actions ng-if="startGameCtrl.winner">
+			<a class="btn btn__start btn--ellipse"
 			   ng-class="{'btn--disabled': createPlayersCtrl.killers.length < 3}"
 			   ng-click="startGameCtrl.newGame()">
 				New Game
