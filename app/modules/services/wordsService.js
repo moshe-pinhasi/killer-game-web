@@ -2,30 +2,26 @@
 
 const _ = require('lodash');
 
-const appModule = angular.module('WordsService', []);
+class WordsService {
 
-appModule.factory('WordsService', [
-	function WordsServiceFactory() {
-
-
+	constructor() {
 		const words = ['Computers', 'Numbers', 'Random', 'Cards',
-			'Food', 'Laptop', 'Watermelon', 'T-Shirt', 'Green', 'Categories',
-			'Table', 'Coffee', 'Star', 'Sister', 'Cry', 'Shopping', 'School',
-			'Taxi', 'Tax', 'Swimming', 'Calendar', 'Hospital', 'Five', 'Ball',
-			'Run', 'Cat', 'Dog', 'Fake', 'Robot', 'Black', 'Goodbye', 'Song',
-			'Escape', 'Newspaper', 'Future', 'Scream', 'Music', 'Sound', 'Duck',
-			'Smock', 'Money', 'Swimming Pool', 'Beer', 'Pizza', 'Vodka', 'Hamburger',
-			'King', 'Poker', 'Casino', 'Soccer', 'Children', 'Guitar', 'Flight'];
+						'Food', 'Laptop', 'Watermelon', 'T-Shirt', 'Green', 'Categories',
+						'Table', 'Coffee', 'Star', 'Sister', 'Cry', 'Shopping', 'School',
+						'Taxi', 'Tax', 'Swimming', 'Calendar', 'Hospital', 'Five', 'Ball',
+						'Run', 'Cat', 'Dog', 'Fake', 'Robot', 'Black', 'Goodbye', 'Song',
+						'Escape', 'Newspaper', 'Future', 'Scream', 'Music', 'Sound', 'Duck',
+						'Smock', 'Money', 'Swimming Pool', 'Beer', 'Pizza', 'Vodka', 'Hamburger',
+						'King', 'Poker', 'Casino', 'Soccer', 'Children', 'Guitar', 'Flight'];
 
-		let killersNames = _.shuffle(angular.copy(words));
+		Object.assign(this, {
+			_killersNames: _.shuffle(angular.copy(words))
+		});
+	}
+	
+	getWord(index) {
+		return this._killersNames[index];
+	}
+}
 
-		const getWord = (index) => killersNames[index];
-
-		// The public API interface
-		return {
-			getWord
-		};
-
-	}]);
-
-module.exports = appModule.name;
+export default WordsService;

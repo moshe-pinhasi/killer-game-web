@@ -2,28 +2,19 @@
 
 const _ = require('lodash');
 
-const appModule = angular.module('GameService', []);
+class GameService {
 
-appModule.factory('GameService', () => {
+	match(killers) {
+		let k = _.shuffle(killers);
 
-		const match = (killers) => {
+		k[k.length-1].person = _.pick(k[0], ['name', 'word', 'uuid']);
+		let i;
+		for (i = 0; i < k.length-1; i++) {
+			k[i].person = _.pick(k[i + 1], ['name', 'word', 'uuid']);
+		}
 
-			let k = _.shuffle(killers);
+		return _.shuffle(k);
+	}
+}
 
-			k[k.length-1].person = _.pick(k[0], ['name', 'word', 'uuid']);
-			let i;
-			for (i = 0; i < k.length-1; i++) {
-				k[i].person = _.pick(k[i + 1], ['name', 'word', 'uuid']);
-			}
-
-			return _.shuffle(k);
-		};
-
-		// The public API interface
-		return {
-			match
-		};
-
-	});
-
-module.exports = appModule.name;
+export default GameService;
