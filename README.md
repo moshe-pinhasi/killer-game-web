@@ -28,6 +28,9 @@ It will start a local server using `webpack-dev-server` which will watch, build 
 * single run: `npm run build`
 * build files and watch: `npm run watch`
 
+## Play the game
+see demo [here](http://pimoshe.com/apps/killer-game/)
+
 # License
 
 [MIT](/LICENSE)
